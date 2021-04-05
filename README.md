@@ -1,5 +1,7 @@
 #Kyle's Portfolio Site
+
 Created by Harry Feasey
+
 ## Available Scripts
 
 In the project directory, you can run:
