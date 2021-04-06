@@ -1,18 +1,20 @@
-import sun from './sun.gif';
 import './App.css';
 import React from 'react';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={sun} className="App-logo" alt="logo" />
-        <div>
-          Kyle Solar Site:
-          <Fetch></Fetch>
+    <div className="App" >
+      <body>
+        <div className="background">
+          <div id="solar1" className="uncover"></div>
+          <div id="solar2" className="uncover"></div>
+          <span class="popup">
+            Live Solar Data:
+            <Fetch></Fetch>
+          </span>
         </div>
+      </body>
 
-      </header>
     </div>
   );
 }
@@ -28,25 +30,33 @@ class Fetch extends React.Component {
   }
 
   componentDidMount() {
-    fetch("http://192.168.1.72/solar1")
-        .then(res => res.json())
-        .then(
-            (result) => {
-              this.setState({
-                isLoaded: true,
-                result: result
-              });
-            },
-            // Note: it's important to handle errors here
-            // instead of a catch() block so that we don't swallow
-            // exceptions from actual bugs in components.
-            (error) => {
-              this.setState({
-                isLoaded: true,
-                error
-              });
-            }
-        )
+
+    this.interval = setInterval(() => this.setState({ time: Date.now() }), 1000);
+
+      fetch("http://192.168.1.72/solar1")
+          .then(res => res.json())
+          .then(
+              (result) => {
+                this.setState({
+                  isLoaded: true,
+                  result: result
+                });
+                this.componentDidMount()
+              },
+              // Note: it's important to handle errors here
+              // instead of a catch() block so that we don't swallow
+              // exceptions from actual bugs in components.
+              (error) => {
+                this.setState({
+                  isLoaded: true,
+                  error: error
+                });
+              }
+          )
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.interval);
   }
 
   render() {
@@ -69,6 +79,10 @@ class Fetch extends React.Component {
       );
     }
   }
+
+
 }
+
+
 
 export default App;
