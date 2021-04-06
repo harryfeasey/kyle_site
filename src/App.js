@@ -1,4 +1,5 @@
 import './App.css';
+import turbine from './res/Turbine Blade.png'
 import React, {useState} from 'react';
 
 function App() {
@@ -10,16 +11,17 @@ function App() {
     <div className="App" >
       <body>
         <div className="background">
+          <img src={turbine} className="turbine" alt="logo" />
           <div id="solar1" className="uncover"
                onMouseEnter={() => setIsShown1(true)}
                onClick={() => setIsShown1(true)}
                onMouseLeave={() => setIsShown1(false)}>
-
+            Panel 1
           </div>
           <div id="solar2" className="uncover"
                onMouseEnter={() => setIsShown2(true)}
                onMouseLeave={() => setIsShown2(false)}>
-            >
+            Panel 2
 
           </div>
           {isShown1 && (

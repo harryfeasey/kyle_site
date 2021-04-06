@@ -26,11 +26,11 @@ body, html{
 }
 
 #popup1{
-  top: 27%;
+  top: 0%;
   left: 59%;
 }
 #popup2{
-  top: 7%;
+  top: -20%;
   left: 78%;;
 }
 
@@ -39,6 +39,7 @@ body, html{
 .uncover:hover .popup{display:block;}
 
 .uncover{
+  color: white;
   position: relative;
   -webkit-transform: skew(
           35deg
@@ -51,17 +52,17 @@ body, html{
 }
 
 #solar1{
-  height: 9%;
+  height: 12%;
   width: 5%;
   left: 68%;
-  top: 38%;
+  top: 9.5%;
 }
 
 #solar2 {
-  height: 9%;
+  height: 12%;
   width: 5%;
   left: 73%;
-  top: 25.5%;
+  top: -6%;
 }
 
 .background {
@@ -81,7 +82,22 @@ body, html{
   color: #ffb8bf
 }
 
-@keyframes App-logo-spin {
+.turbine{
+  position: relative;
+  right: 25%;
+  top: 28%;
+  width: 28vh;
+  height: 25vh;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .turbine {
+    animation: turbine-spin infinite 10s linear;
+  }
+}
+
+
+@keyframes turbine-spin {
   from {
     transform: rotate(0deg);
   }
