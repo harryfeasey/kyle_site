@@ -1,17 +1,43 @@
 import './App.css';
-import React from 'react';
+import React, {useState} from 'react';
 
 function App() {
+
+  const [isShown1, setIsShown1] = useState(false);
+  const [isShown2, setIsShown2] = useState(false);
+
   return (
     <div className="App" >
       <body>
         <div className="background">
-          <div id="solar1" className="uncover"></div>
-          <div id="solar2" className="uncover"></div>
-          <span class="popup">
-            Live Solar Data:
-            <Fetch></Fetch>
-          </span>
+          <div id="solar1" className="uncover"
+               onMouseEnter={() => setIsShown1(true)}
+               onClick={() => setIsShown1(true)}
+               onMouseLeave={() => setIsShown1(false)}>
+
+          </div>
+          <div id="solar2" className="uncover"
+               onMouseEnter={() => setIsShown2(true)}
+               onMouseLeave={() => setIsShown2(false)}>
+            >
+
+          </div>
+          {isShown1 && (
+          <div className="popup" id="popup1">
+            <span>
+              Solar 1 Data:<br/>
+              <Fetch></Fetch>
+            </span>
+          </div>
+          )}
+          {isShown2 && (
+              <div className="popup" id="popup2">
+            <span>
+              Solar 2 Data:<br/>
+              <Fetch></Fetch>
+            </span>
+              </div>
+          )}
         </div>
       </body>
 
@@ -62,9 +88,9 @@ class Fetch extends React.Component {
   render() {
     const { error, isLoaded, result } = this.state;
     if (error) {
-      return <div class="error">Error: {error.message}</div>;
+      return <span class="error">Error: {error.message}</span>;
     } else if (!isLoaded) {
-      return <div>Loading...</div>;
+      return "Loading...";
     } else {
       return (
           <div>

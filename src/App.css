@@ -13,14 +13,32 @@ body, html{
 }
 
 .popup{
-  display: none;
-  font-size: calc(10px + 2vmin);
+  font-size: calc(3px + 2vmin);
   color: white;
+  position: relative;
+
+  border-radius: 12px;
+  border: #00150e;
+  border-width: thick;
+  width: 9vw;
+  height: 14vh;
+  background: #099297a8;
 }
+
+#popup1{
+  top: 27%;
+  left: 59%;
+}
+#popup2{
+  top: 7%;
+  left: 78%;;
+}
+
+
+
 .uncover:hover .popup{display:block;}
 
 .uncover{
-  background: #ffffffbd;
   position: relative;
   -webkit-transform: skew(
           35deg
@@ -42,8 +60,8 @@ body, html{
 #solar2 {
   height: 9%;
   width: 5%;
-  left: 69%;
-  top: 36%;
+  left: 73%;
+  top: 25.5%;
 }
 
 .background {
@@ -60,7 +78,7 @@ body, html{
 }
 
 .error {
-  color: #7a0000
+  color: #ffb8bf
 }
 
 @keyframes App-logo-spin {
