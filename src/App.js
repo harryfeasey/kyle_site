@@ -1,5 +1,5 @@
 import './App.css';
-import turbine from './res/Turbine Blade.png'
+import turbine from './res/Turbine Blade2.png'
 import React, {useState} from 'react';
 
 function App() {
